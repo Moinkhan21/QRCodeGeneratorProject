@@ -1,0 +1,103 @@
+/* Apply a universal reset for margin, padding, and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Set the default font */
+    box-sizing: border-box; /* Ensures padding and borders don't affect element width/height */
+}
+
+/* Body styles */
+body {
+    background-color: #262a2f; /* Dark background color for the page */
+}
+
+/* Container that holds the QR code generator form */
+.container {
+    width: 400px; /* Set the width of the form */
+    padding: 25px 35px; /* Add padding for internal spacing */
+    position: absolute; /* Center the container on the page */
+    top: 50%; /* Vertically center */
+    left: 50%; /* Horizontally center */
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    background-color: #fff; /* White background for the form */
+    border-radius: 10px; /* Rounded corners for the form */
+}
+
+/* Paragraph inside the container */
+.container p {
+    font-weight: 600; /* Bold text */
+    font-size: 15px; /* Slightly larger font size */
+    margin-bottom: 8px; /* Space below the paragraph */
+}
+
+/* Input fields in the form */
+.container input {
+    width: 100%; /* Full width of the container */
+    height: 50px; /* Set the height of the input fields */
+    border: 1px solid #494eea; /* Border color matching the button */
+    outline: 0; /* Remove the default outline */
+    padding: 10px; /* Internal padding */
+    margin: 10px 0 10px; /* Margin to space out the inputs */
+    border-radius: 5px; /* Rounded corners for the input fields */
+}
+
+/* Button styles */
+.container button {
+    width: 100%; /* Full width of the container */
+    height: 50px; /* Button height */
+    background-color: #494eea; /* Button background color */
+    color: #fff; /* White text color */
+    border: 0; /* Remove border */
+    outline: 0; /* Remove outline on click */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin: 20px 0; /* Margin for spacing around the button */
+    font-weight: 500; /* Semi-bold font weight */
+}
+
+/* Box containing the generated QR code */
+#imgBox {
+    width: 200px; /* Set a fixed width for the QR image container */
+    border-radius: 5px; /* Rounded corners for the image container */
+    max-height: 0; /* Initially hide the QR image container */
+    overflow: hidden; /* Hide the content when the height is 0 */
+    transition: max-height 1s; /* Smooth transition for showing the QR code */
+}
+
+/* Image inside the imgBox */
+#imgBox img {
+    width: 100%; /* Make the image fill the container */
+    padding: 10px; /* Add padding around the image */
+}
+
+/* When the QR code is generated, apply this class */
+#imgBox.show-img {
+    max-height: 300px; /* Set max-height to allow the image to be displayed */
+    margin: 10px auto; /* Center the image horizontally with margin */
+    border: 1px solid #d1d1d1; /* Add a border around the image */
+}
+
+/* Error animation for input */
+.error {
+    animation: shake 0.1s linear 10; /* Shake animation when input is incorrect */
+}
+
+/* Keyframes for shake animation */
+@keyframes shake {
+    0% {
+        transform: translateX(0); /* Start at the default position */
+    }
+    25% {
+        transform: translateX(-2px); /* Move left slightly */
+    }
+    50% {
+        transform: translateX(0); /* Return to default position */
+    }
+    75% {
+        transform: translateX(2px); /* Move right slightly */
+    }
+    100% {
+        transform: translateX(0); /* Return to default position */
+    }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <!-- Linking external CSS for styling -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main container for QR Code Generator UI -->
+    <div class="container">
+        <p>Enter your text or URL</p>
+        <!-- Input field where users enter text or URL for QR code generation -->
+        <input type="text" placeholder="Text or URL" id="qrText">
+
+        <!-- Button to trigger the QR code generation process -->
+        <button onclick="generateQR()">Generate QR Code</button>
+        
+        <!-- Container to display the generated QR code image -->
+        <div id="imgBox">
+            <!-- Image element to hold and display the generated QR code -->
+            <img src="" alt="QRCodeImage" id="qrImage">
+        </div>
+    </div>
+
+    <!-- JavaScript to handle QR code generation logic -->
+    <script>
+        // Selecting elements for easier access and functionality
+        let imgBox = document.getElementById("imgBox");
+        let qrImage = document.getElementById("qrImage");
+        let qrText = document.getElementById("qrText");
+
+        // Function to generate the QR code
+        function generateQR() {
+            // Check if the input field is not empty
+            if (qrText.value.length > 0) {
+                // Set the 'src' of the qrImage to generate a QR code from an external API with user input
+                qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
+                // Add a CSS class to display the QR code image (this class should be styled in CSS)
+                imgBox.classList.add("show-img");
+            } else {
+                // If input is empty, highlight the input field to indicate an error
+                qrText.classList.add('error');
+                // Remove the error highlight after 1 second
+                setTimeout(() => {
+                    qrText.classList.remove('error');
+                }, 1000); 
+            }
+        }
+    </script>
+</body>
+</html>
